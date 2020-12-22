@@ -1,11 +1,6 @@
 import NoteManager from "./NoteManager.js";
 import Routing from "./Routing.js";
-function noteItem(id, name, text, date) {
-    this.id = getId();
-    this.name = getName();
-    this.text=getText();
-    this.date=getDate();
-}
+
 
 let noteManager = new NoteManager({
     el: document.querySelector('.left-bar-nav'),
@@ -62,7 +57,7 @@ function make_json_note({id, title, body, date}) {
     }
 }
 
-noteManager.onNewNote = (note) => {
+noteManager.onNewNote = (note)=>{
     localStorage.setItem(note.id, JSON.stringify(make_json_note(note)));
 };
 

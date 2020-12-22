@@ -11,9 +11,9 @@ export default class NoteManager {
 
         this.renderNotes();
 
-        this.onNewNote = () => {};
-        this.onEditNote = () => {};
-        this.onRemoveNote = () => {};
+        this.onNewNote =()=>{};
+        this.onEditNote =()=>{};
+        this.onRemoveNote =()=>{};
 
     }
 
@@ -59,7 +59,7 @@ export default class NoteManager {
         this.renderNotes();
         this.onEditNote(note);
 
-        const choosenNote = document.getElementById(note.id);
+        let choosenNote = document.getElementById(note.id);
         choosenNote.style.backgroundColor = '#a3d1ae';
     }
 
@@ -69,7 +69,7 @@ export default class NoteManager {
         this.renderNotes();
         this.onEditNote(note);
 
-        const choosenNote = document.getElementById(note.id);
+        let choosenNote = document.getElementById(note.id);
         choosenNote.style.backgroundColor = '#a3d1ae';
     }
 

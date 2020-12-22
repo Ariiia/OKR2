@@ -31,7 +31,7 @@ main {
 
 #add-button {
     width: 100%;
-    height: 7vh;
+    height: 9vh;
     border: none;
     font-size: 1.2rem;
     color:#1C4237;
@@ -49,7 +49,7 @@ main {
 }
 
 #add-button:focus{
-    outline: none;
+     outline: none; 
 }
 
 .left-bar-nav {
@@ -71,12 +71,15 @@ main {
     border-bottom: 1px solid #2e3f37;
 }
 
-.nav-note:hover:active {
+.nav-note:active {
     cursor: pointer;
     background-color: rgb(90, 153, 119);
 }
 
-
+.nav-note:hover {
+    cursor: pointer;
+    background-color: rgb(90, 153, 119);
+}
 .note_name {
     
     font-size: 1.3rem;
