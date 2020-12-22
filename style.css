@@ -30,17 +30,17 @@ main {
  
 
 #add-button {
-      background-image: "images/plus.png"; 
-      display: flex;
-      float: right;
-    width: 5rem;
-    height: 5rem;
+      background-image: "images/pl.png"; 
+      display: flex; 
+    width: 3vw;
+    height: 2rem;
     border: none;
-    font-size: 1.2rem;
+    
     color:#1C4237;
     font-weight: bold;
     background-color: rgba(117, 190, 218, 0.0);
-    position:absolute; top:0; right:0
+    position: absolute; top: +5px; 
+    ;right: +5px;
     
 
 
@@ -151,7 +151,7 @@ main {
     border-bottom: 0.1rem solid #293129;
     border-left: 0.1rem solid#293129;
     height: 10%;
-    width:100%;
+    width:90%;
     margin-top: 3rem;
 }
 
