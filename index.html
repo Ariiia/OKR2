@@ -1,33 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="shortcut icon" type="image/x-icon" href="images/icon.ico" />
     <title>Notes</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="shortcut icon" type="image/x-icon" href="images/icon.ico" />
 </head>
 <body>
-<div class="container">
-    <div class="notes-container">
-        <ul class="notes-list">
-            <li>
-                <div class="note-title">Note title</div>
-                <div class="note-text">
-                    <span class="date">Сегодня, 17:20</span>
-                    <span class="text">text</span>
-                </div>
-                <button>Remove</button>
-            </li>
-
-
+<main>
+    <div class='left-bar'>
+        <button id ="add-button">New Note</button>
+        <ul class='left-bar-nav'>         
         </ul>
     </div>
-    <div class="note-view">
-        <input id="note-title" type="text" placeholder="Name your note" />
-        <button id ="Add" class="add-btn">Add</button>
-        <textarea id="text" class="note-text" placeholder="Type your text here"></textarea>
+    <div class = 'note-body'>      
     </div>
-</div>
-<script src="script.js"></script>
+</main>
+<script type="module" src="script.js"></script>
 </body>
 </html>
