@@ -120,10 +120,10 @@ class NoteManager {
 
     updateNotes() {
         this.el.innerHTML = '';
-        this.notes.forEach(note => this.renderNote(note.putInPage()));
+        this.notes.forEach(note => this.updateNote(note.putInPage()));
     }
 
-    renderNote(note) {
+    updateNote(note) {
         this.el.append(note);
     }
 
