@@ -27,7 +27,7 @@ export default class NoteBody {
         </div>`;
     }
 
-    attachEventListeners() {
+    inEvents() {
         let titleField = this.el.querySelector('.note-title');
         let bodyField = this.el.querySelector('.note-textarea');
 
@@ -40,13 +40,13 @@ export default class NoteBody {
         });
     }
 
-    buildNote() {
+    putInPage() {
         let htmlBuffer = this.html();
         let div = document.createElement('div');
-         div.innerHTML = htmlBuffer
+        div.innerHTML = htmlBuffer
         this.el = div.children[0];
 
-        this.attachEventListeners();
+        this.inEvents();
 
         return this.el
     }

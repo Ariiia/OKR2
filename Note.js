@@ -19,7 +19,7 @@ export default class Note {
         </li>`
     }
 
-    attachEventListeners() {
+    inEvents() {
         let btnRemove = this.el.querySelector('.remove-button');
      
         btnRemove.onclick = () => {
@@ -34,14 +34,14 @@ export default class Note {
 
     }
 
-    buildNote() {
+    putInPage() {
         let htmlBuffer = this.html();
         let list = document.createElement('li');
         list.innerHTML = htmlBuffer;
 
         this.el = list.children[0];
 
-        this.attachEventListeners();
+        this.inEvents();
 
         return this.el
     }

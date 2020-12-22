@@ -9,7 +9,7 @@ export default class NoteManager {
         this.notes = notes.map(note => new Note(note, this));
         this.currentNote = null;
 
-        this.renderNotes();
+        this.updateNotes();
 
         this.onNewNote =()=>{};
         this.onEditNote =()=>{};
@@ -17,9 +17,9 @@ export default class NoteManager {
 
     }
 
-    renderNotes() {
+    updateNotes() {
         this.el.innerHTML = '';
-        this.notes.forEach(note => this.renderNote(note.buildNote()));
+        this.notes.forEach(note => this.renderNote(note.putInPage()));
     }
 
     renderNote(note) {
@@ -34,17 +34,17 @@ export default class NoteManager {
         if (this.currentNote === note) {
             this.currentNote = null;
         }
-        this.renderNotes();
+        this.updateNotes();
 
     }
 
     onShowNote(note) {
-        this.renderNotes();
+        this.updateNotes();
         this.currentNote = note;
         history.pushState(null, null, ('#' + note.id));
 
         let editField = new NoteBody(note, this);
-        let newEd = editField.buildNote();
+        let newEd = editField.putInPage();
 
         this.noteBody.replaceWith(newEd);
         this.noteBody = newEd;
@@ -56,7 +56,7 @@ export default class NoteManager {
     onEditTitle(note) {
         note.title = this.noteBody.querySelector('.note-title').value;
         note.date = new Date();
-        this.renderNotes();
+        this.updateNotes();
         this.onEditNote(note);
 
         let choosenNote = document.getElementById(note.id);
@@ -66,7 +66,7 @@ export default class NoteManager {
     onEditBody(note) {
         note.body = this.noteBody.querySelector('.note-textarea').value;
         note.date = new Date();
-        this.renderNotes();
+        this.updateNotes();
         this.onEditNote(note);
 
         let choosenNote = document.getElementById(note.id);
@@ -77,7 +77,7 @@ export default class NoteManager {
         const objNote = new Note(note, this);
         this.notes.unshift(objNote);
 
-        this.renderNotes();
+        this.updateNotes();
         this.onNewNote(objNote);
         this.onShowNote(objNote);
     }
