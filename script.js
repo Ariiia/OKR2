@@ -21,15 +21,15 @@ class Note {
     }
 
     inEvents() {
-        let btnRemove = this.el.querySelector('.remove-button');
+        let buttonRemove = this.el.querySelector('.remove-button');
      
-        btnRemove.onclick = () => {
+        buttonRemove.onclick = () => {
             this.notesManager.removeNote(this);
 
         }
 
         this.el.addEventListener('click', (e) => {
-            if (e.target !== btnRemove[0])
+            if (e.target !== buttonRemove[0])
                 this.notesManager.onShowNote(this);
         });
 
