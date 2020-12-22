@@ -21,7 +21,7 @@ export default class Note {
 
     attachEventListeners() {
         let btnRemove = this.el.querySelector('.remove-button');
-
+     
         btnRemove.onclick = () => {
             this.notesManager.removeNote(this);
 

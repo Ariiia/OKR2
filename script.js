@@ -1,5 +1,4 @@
 import NoteManager from "./NoteManager.js";
-import Routing from "./Routing.js";
 
 
 let noteManager = new NoteManager({
@@ -34,7 +33,12 @@ document.getElementById("add-button").onclick=function(){
 };
 
 (function () {
-    new Routing(noteManager);
+    window.addEventListener('hashchange', () => onRouteChange());
+    if (window.location.hash){
+        if (!loadContent(window.location.hash.substring(1)))
+            history.pushState(null, null, '/');
+    }
+
     noteManager.renderNotes();
 
     let newNoteBtn = document.getElementById('add-button');
@@ -48,24 +52,42 @@ document.getElementById("add-button").onclick=function(){
         })
     };
 })();
-function make_json_note({id, title, body, date}) {
-    return {
-        id,
-        title,
-        body,
-        date
-    }
-}
+
 
 noteManager.onNewNote = (note)=>{
-    localStorage.setItem(note.id, JSON.stringify(make_json_note(note)));
+    localStorage.setItem(note.id, JSON.stringify({id:note.id,
+         title:note.title,
+         body:note.body,
+         date:note.date}));
 };
 
 noteManager.onEditNote = (note) => {
-    localStorage.setItem(note.id, JSON.stringify(make_json_note(note)));
+    localStorage.setItem(note.id, JSON.stringify({id:note.id,
+        title:note.title,
+        body:note.body,
+        date:note.date}));
 };
 
 noteManager.onRemoveNote = (note) => {
     localStorage.removeItem(note.id);
 };
 
+
+
+function onRouteChange() {
+    let hashLocation = window.location.hash.substring(1);
+
+    if (!loadContent(hashLocation))
+        history.pushState(null, null, '/');
+}
+
+function loadContent(hash) {
+    let t = noteManager.notes;
+    for (let i = 0; i < t.length; i++) {
+        if (t[i].id === hash) {
+            noteManager.onShowNote(t[i]);
+            return true;
+        }
+    }
+return false;
+}
