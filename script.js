@@ -16,7 +16,7 @@ class Note {
         <li class="nav-note" id='${this.id}'>
             <button class="remove-button"><img src="images/del.png"></button>
             <div class = 'note_name'>${this.title}</div>
-            <div class = 'note_time'>${this.date.toLocaleDateString('en-US')}</div>
+            <div class = 'note_time'>${this.date.toLocaleDateString('en')}</div>
         </li>`
     }
 
@@ -75,7 +75,7 @@ class NoteBody {
                  contenteditable="true">${this.note.body}</textarea>
             </div>
         </div>`;
-    }
+        }
 
     inEvents() {
         let titleField = this.el.querySelector('.note-title');
